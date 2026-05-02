@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kalyanjit Naik — P&C Insurance Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --blue: #185FA5;
+    --blue-light: #E6F1FB;
+    --teal: #0F6E56;
+    --teal-light: #E1F5EE;
+    --gray: #f5f4f0;
+    --mid: #888780;
+    --text: #1a1a1a;
+    --border: #e0ddd6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--gray);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    color: #fff;
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(24,95,165,0.15);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(15,110,86,0.12);
+  }
+  .avatar {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: #fff;
+    font-size: 22px;
+    font-weight: 500;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.5rem;
+    border: 3px solid rgba(255,255,255,0.15);
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+  .hero .role {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .hero .tagline {
+    font-size: 16px;
+    color: rgba(255,255,255,0.75);
+    max-width: 480px;
+    margin: 0 auto 2rem;
+  }
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+  .contact-row a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    border: 0.5px solid rgba(255,255,255,0.2);
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: all 0.2s;
+  }
+  .contact-row a:hover {
+    color: #fff;
+    border-color: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.08);
+  }
+
+  /* STATS */
+  .stats {
+    background: var(--blue);
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0;
+  }
+  .stat {
+    text-align: center;
+    padding: 1rem;
+    border-right: 0.5px solid rgba(255,255,255,0.15);
+  }
+  .stat:last-child { border-right: none; }
+  .stat .num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: #fff;
+    display: block;
+  }
+  .stat .lbl {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.04em;
+  }
+
+  /* MAIN LAYOUT */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 2.5rem;
+    align-items: start;
+  }
+  @media (max-width: 640px) {
+    .container { grid-template-columns: 1fr; }
+    .sidebar { order: -1; }
+  }
+
+  /* SECTIONS */
+  .section { margin-bottom: 2.5rem; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--blue-light);
+  }
+
+  /* PROFILE */
+  .profile-text {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #333;
+  }
+  .profile-text .highlight {
+    border-left: 3px solid var(--blue);
+    padding-left: 0.75rem;
+    margin: 1rem 0;
+    color: var(--navy);
+    font-style: italic;
+  }
+
+  /* EXPERIENCE */
+  .exp-item {
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .exp-item:last-child { border-bottom: none; margin-bottom: 0; }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.25rem;
+  }
+  .exp-title { font-weight: 500; font-size: 15px; color: var(--navy); }
+  .exp-date {
+    font-size: 12px;
+    color: var(--mid);
+    background: var(--gray);
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .exp-company { font-size: 13px; color: var(--blue); margin-bottom: 0.75rem; }
+  .exp-list { list-style: none; padding: 0; }
+  .exp-list li {
+    font-size: 14px;
+    color: #444;
+    padding: 4px 0 4px 1rem;
+    position: relative;
+    line-height: 1.6;
+  }
+  .exp-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--blue);
+    font-size: 12px;
+  }
+
+  /* PROJECT */
+  .project-card {
+    background: var(--teal-light);
+    border-radius: 10px;
+    padding: 1.25rem;
+    border: 0.5px solid #9FE1CB;
+  }
+  .project-card h4 { font-size: 14px; font-weight: 500; color: var(--teal); margin-bottom: 0.25rem; }
+  .project-card .meta { font-size: 12px; color: #0F6E56; opacity: 0.7; margin-bottom: 0.75rem; }
+  .project-card p { font-size: 13px; color: #1a3d35; line-height: 1.6; }
+
+  /* SIDEBAR */
+  .sidebar { }
+  .sidebar-card {
+    background: #fff;
+    border-radius: 12px;
+    border: 0.5px solid var(--border);
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  /* SKILLS */
+  .skill-pill {
+    display: inline-block;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: var(--blue-light);
+    color: #0C447C;
+    border: 0.5px solid #B5D4F4;
+    margin: 3px 3px 3px 0;
+  }
+
+  /* EDUCATION */
+  .edu-item { margin-bottom: 1rem; }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-deg { font-size: 14px; font-weight: 500; color: var(--navy); }
+  .edu-school { font-size: 13px; color: var(--mid); }
+  .edu-year { font-size: 12px; color: var(--mid); }
+
+  /* CERT */
+  .cert-item {
+    font-size: 13px;
+    color: #333;
+    padding: 6px 0;
+    border-bottom: 0.5px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .cert-item:last-child { border-bottom: none; }
+  .cert-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+
+  /* CONSULTING INTENT */
+  .intent-box {
+    background: var(--navy);
+    border-radius: 10px;
+    padding: 1.25rem;
+    color: #fff;
+    margin-top: 0.5rem;
+  }
+  .intent-box p { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.6; }
+  .intent-box .label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 0.5rem; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 12px;
+    color: var(--mid);
+    border-top: 0.5px solid var(--border);
+    background: #fff;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero > * { animation: fadeUp 0.6s ease both; }
+  .hero .avatar { animation-delay: 0.05s; }
+  .hero h1 { animation-delay: 0.12s; }
+  .hero .role { animation-delay: 0.18s; }
+  .hero .tagline { animation-delay: 0.24s; }
+  .hero .contact-row { animation-delay: 0.32s; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="avatar">KN</div>
+  <h1>Kalyanjit Naik</h1>
+  <p class="role">P&C Insurance · Corporate Risk Advisory · Strategy Consulting</p>
+  <p class="tagline">Senior Manager at ICICI Lombard · Mumbai · Open to Strategy Consulting Roles</p>
+  <div class="contact-row">
+    <a href="mailto:kalyanjit03@gmail.com">kalyanjit03@gmail.com</a>
+    <a href="https://www.linkedin.com/in/kalyanjit-naik/" target="_blank">LinkedIn</a>
+    <a href="#">Mumbai, India</a>
+  </div>
+</header>
+
+<!-- STATS BAR -->
+<div class="stats">
+  <div class="stat"><span class="num">INR 27Cr</span><span class="lbl">Portfolio managed</span></div>
+  <div class="stat"><span class="num">575%</span><span class="lbl">Portfolio growth</span></div>
+  <div class="stat"><span class="num">50+</span><span class="lbl">Corporate clients</span></div>
+  <div class="stat"><span class="num">15+</span><span class="lbl">Channel partners</span></div>
+  <div class="stat"><span class="num">4+</span><span class="lbl">Years experience</span></div>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+
+  <!-- LEFT COLUMN -->
+  <main>
+
+    <!-- PROFILE -->
+    <div class="section">
+      <p class="section-label">Profile</p>
+      <div class="profile-text">
+        <p>P&C Insurance professional with 4+ years of experience in corporate risk advisory, portfolio management, and insurance solutions across Fire, Marine, Group Health (GHI), and Liability lines.</p>
+        <div class="highlight">
+          Demonstrated ability to analyse client risk profiles, design tailored coverage structures, and manage portfolios worth INR 27 Crores — scaled 575% through strategic client acquisition and retention.
+        </div>
+        <p>Experienced in channel partner training, and cross-functional coordination. Seeking to transition into insurance consulting to leverage domain expertise in advisory and transformation engagements at leading consulting firms.</p>
+      </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="section">
+      <p class="section-label">Professional Experience</p>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-title">Senior Manager – Corporate Solutions Group (CSG)</span>
+          <span class="exp-date">Feb 2022 – Present</span>
+        </div>
+        <p class="exp-company">ICICI Lombard General Insurance · Mumbai Head Office</p>
+        <ul class="exp-list">
+          <li>Manage and grow a corporate insurance portfolio worth INR 27 Crores across Fire, Marine, Public Liability, and Group Health Insurance lines</li>
+          <li>Drive business through 15+ channel partners, providing advisory support on coverage structures, terms, and risk requirements for corporate clients</li>
+          <li>Conduct client risk assessments and portfolio analysis for 50+ corporate clients across SME and large enterprise segments</li>
+          <li>Evaluate underwriting risks and recommend bespoke coverage structures aligned with IRDA guidelines and Sookshma & Laghu Tariff frameworks</li>
+          <li>Coordinate with internal underwriting teams to facilitate tailor-made policies for preferred risk clients</li>
+          <li>Lead retention activities achieving consistent renewal engagement, including policy review, re-pricing, and coverage enhancement discussions</li>
+          <li>Deliver training programs to channel partners on specialised insurance products (Fire, Marine, PL, and others) and compliance requirements</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-title">Internet Advertising & Marketing Consultant</span>
+          <span class="exp-date">Jan 2022 – Feb 2022</span>
+        </div>
+        <p class="exp-company">Justdall LTD · Kolkata</p>
+        <ul class="exp-list">
+          <li>Provided internet advertising and digital marketing consulting services to clients</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- KEY PROJECT -->
+    <div class="section">
+      <p class="section-label">Key Project</p>
+      <div class="project-card">
+        <h4>Myra OPS Implementation — Quote Management System Rollout</h4>
+        <p class="meta">Nov 2022 – Dec 2022 · Remote</p>
+        <p>Led training and onboarding of employees and channel partners on Myra PR — a digital quote management system. Successfully went live with selected channel partners within project timelines. Trained Sales RMs on product and process workflows, and provided departmental underwriting inputs for tailor-made policies under Sookshma & Laghu Tariff (as per IRDA).</p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- CONSULTING INTENT -->
+    <div class="intent-box">
+      <p class="label">Open to</p>
+      <p>Strategy consulting roles in financial services & insurance — McKinsey, BCG, Bain, and specialist advisory firms.</p>
+    </div>
+
+    <!-- EXPERTISE -->
+    <div class="sidebar-card" style="margin-top: 1.25rem;">
+      <p class="section-label">Areas of Expertise</p>
+      <div>
+        <span class="skill-pill">Corporate Risk Advisory</span>
+        <span class="skill-pill">P&C Insurance</span>
+        <span class="skill-pill">Fire Insurance</span>
+        <span class="skill-pill">Marine Insurance</span>
+        <span class="skill-pill">Group Health (GHI)</span>
+        <span class="skill-pill">Public Liability</span>
+        <span class="skill-pill">Portfolio Management</span>
+        <span class="skill-pill">Loss Ratio Analysis</span>
+        <span class="skill-pill">Underwriting Support</span>
+        <span class="skill-pill">IRDA Regulations</span>
+        <span class="skill-pill">Channel Partner Mgmt</span>
+        <span class="skill-pill">Stakeholder Training</span>
+        <span class="skill-pill">Cross-functional Coordination</span>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="sidebar-card">
+      <p class="section-label">Education</p>
+      <div class="edu-item">
+        <p class="edu-deg">MBA – Management</p>
+        <p class="edu-school">College of IT & Management Education, Bhubaneswar</p>
+        <p class="edu-year">Oct 2020 – Jun 2022</p>
+      </div>
+      <div class="edu-item">
+        <p class="edu-deg">Bachelor of Science</p>
+        <p class="edu-school">Utkal University, Kendrapara</p>
+        <p class="edu-year">Oct 2017 – Aug 2020</p>
+      </div>
+    </div>
+
+    <!-- CERTIFICATIONS -->
+    <div class="sidebar-card">
+      <p class="section-label">Certifications</p>
+      <div class="cert-item">
+        <span class="cert-dot"></span>
+        <span>Certificate in Risk Management — The Open University, UK (2021–22)</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-dot"></span>
+        <span>Diploma in Project Management — Oxford Home Study (2022–23)</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-dot"></span>
+        <span>Certification in MS Office Suite</span>
+      </div>
+    </div>
+
+    <!-- TOOLS -->
+    <div class="sidebar-card">
+      <p class="section-label">Tools & Tech</p>
+      <span class="skill-pill">Myra OPS</span>
+      <span class="skill-pill">MS Excel (Advanced)</span>
+      <span class="skill-pill">MS Office Suite</span>
+      <span class="skill-pill">CRM Tools</span>
+    </div>
+
+  </aside>
+</div>
+
+<footer>
+  Kalyanjit Naik · Mumbai, India · kalyanjit03@gmail.com
+</footer>
+
+</body>
+</html>
